@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<iframe name="main" id="BFQ" width="100%" height="100%"
+		allowFullScreen="ture" allowTransparency="false" frameborder="0"
+		scrolling="yes"
+		src="https://v.qq.com/x/search/?q=%E6%96%97%E7%BD%97%E5%A4%A7%E9%99%86"></iframe>
+	<br />
+	<button style="width:300px;height:100px;" onclick="btn_click()">播放</button>
+	<script>
+		function btn_click() {
+			alert(document.getElementById("BFQ").contentWindow.document);
+		}
+	</script>
+</body>
+</html>
