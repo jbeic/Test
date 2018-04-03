@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+<!-- 为 实体映射 文件 创建别名映射 -->
+<typeAliases>
+
+	<package name="com.jbeic.mybatis"/><!--这个 包下面的 所有 实体类 别名 自动 创建 -->
+
+</typeAliases>
+
+    <environments default="development"><!-- 环境池 配置 ：default 属性值 默认环境名称 -->
+        <environment id="development">
+            <transactionManager type="JDBC" />
+            <!-- 配置数据库连接信息 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver" />
+                <property name="url" value="jdbc:mysql://192.168.0.100:3306/mytest1" /><!-- 老陈写法：jdbc:mysql:///hytc -->
+                <property name="username" value="root" />
+                <property name="password" value="" />
+            </dataSource>
+        </environment>
+    </environments>
+     
+     <mappers>      
+        <mapper resource="com/jbeic/mybatis/UsersMapper.xml"/>       
+    </mappers>
+</configuration>

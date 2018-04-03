@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jbeic.mybatis.UserBeanmapper">
+     
+     <!-- 实体类 中 与表名字 不同  使用 resultMap 来创建 别名映射！-->
+    <!--  <resultMap type="UserBean" id="userBeanMap">
+    		 <id column="u_id" property="id" jdbcType="INTEGER"/>
+    		 <result column="u_name" property="name"/>
+    		 <result column="u_sex" property="sex"/>    
+     </resultMap>   
+       查询 所有 数据 测试！ -->  
+    <select id="findAll" resultType="com.jbeic.mybatis.UserBean">  <!-- 书写 SQL 语句 -->
+        SELECT * FROM t_user
+    </select>
+    <insert id="insert" parameterType="com.jbeic.mybatis.UserBean">
+        INSERT INTO t_user (username,password,account) VALUES (#{username},#{password},#{account})
+    </insert>
+    <update id="update" parameterType="com.jbeic.mybatis.UserBean">
+        update t_user set username=#{username},password=#{password},account=#{account} where id= #{id}
+    </update>
+    <delete id="delete" parameterType="com.jbeic.mybatis.UserBean">
+       delete from  t_user where id= #{id}
+    </delete>
+  
+</mapper>
