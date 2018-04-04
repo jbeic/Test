@@ -20,11 +20,11 @@ public class AppText {
 	public void teste() {
 		String resource = "conf.xml"; // 定位核心配置文件
 		InputStream inputStream = null;
-		try {
+		try { 
 			inputStream = Resources.getResourceAsStream(resource);
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream); // 创建
-			SqlSession sqlSession = sqlSessionFactory.openSession(); // 获取�?
-			// 调用 mapper 中的方法：命名空�?+ id
+			SqlSession sqlSession = sqlSessionFactory.openSession(); // 获取�?
+			// 调用 mapper 中的方法：命名空�?+ id
 			List<UserBean> personList = sqlSession.selectList("com.jbeic.mybatis.UserBeanmapper.findAll");
 			for (UserBean p : personList) {
 				System.out.println(p);
