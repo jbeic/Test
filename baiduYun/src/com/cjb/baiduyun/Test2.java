@@ -23,13 +23,14 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
+import org.junit.Test;
 
 import sun.misc.BASE64Decoder;
 
 import com.baidu.aip.ocr.AipOcr;
 import com.mdd.proxyip.utils.VCodeCheckUtils;
 
-public class Test {
+public class Test2 {
 
 	public static final String APP_ID = "11013335";
 	public static final String API_KEY = "Ze21tEQq2hbWonWW2KMuGkyF";
@@ -159,6 +160,25 @@ public class Test {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	@Test
+	public void tets(){
+		
+		final String APP_ID = "11013335";
+		final String API_KEY = "Ze21tEQq2hbWonWW2KMuGkyF";
+		final String SECRET_KEY = "BrwunVMnGWSKITgFXljGCDjxbPHiplog";
+		AipOcr client = new AipOcr(APP_ID, API_KEY, SECRET_KEY);
+		// 可选：设置网络连接参数
+		client.setConnectionTimeoutInMillis(2000);
+		client.setSocketTimeoutInMillis(60000);
+		// 传入可选参数调用接口
+		HashMap<String, String> options = new HashMap<String, String>();
+		//options.put("language_type", "ENG");
+		options.put("detect_direction", "false");
+		options.put("probability", "false");
+		JSONObject res = client.basicAccurateGeneral("d://333.png", options);
+		String codeString1 = res.toString(2).trim();
+		System.out.println(codeString1);
 	}
 
 }
